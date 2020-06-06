@@ -2,10 +2,11 @@
     "name": "rebaser",
     "displayName": "rebaser",
     "description": "Annotate information on git interactive rebase.",
-    "version": "0.1.0",
-    "publisher": "SoftwareApe",
+    "version": "0.1.1",
+    "publisher": "softwareape",
     "license": "MIT",
     "readme": "README.md",
+    "icon": "icon.png",
     "repository": {
         "url": "https://github.com/SoftwareApe/vscode-rebaser",
         "type": "git"
