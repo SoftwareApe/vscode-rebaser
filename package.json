@@ -2,7 +2,7 @@
     "name": "rebaser",
     "displayName": "rebaser",
     "description": "Annotate information on git interactive rebase.",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "publisher": "softwareape",
     "license": "MIT",
     "readme": "README.md",
@@ -22,6 +22,70 @@
     ],
     "main": "./out/extension",
     "contributes": {
+        "commands": [
+            {
+                "command": "rebaser.changeRebaseCommand",
+                "title": "Change type of rebase command between pick, reword, edit, etc. "
+            }
+        ],
+        "keybindings": [
+            {
+                "key": "p",
+                "command": "rebaser.changeRebaseCommand",
+                "args": {
+                    "text" : "p"
+                },
+                "when": "editorTextFocus && editorLangId == git-rebase"
+            },
+            {
+                "key": "r",
+                "command": "rebaser.changeRebaseCommand",
+                "args": {
+                    "text" : "r"
+                },
+                "when": "editorTextFocus && editorLangId == git-rebase"
+            },
+            {
+                "key": "e",
+                "command": "rebaser.changeRebaseCommand",
+                "args": {
+                    "text" : "e"
+                },
+                "when": "editorTextFocus && editorLangId == git-rebase"
+            },
+            {
+                "key": "s",
+                "command": "rebaser.changeRebaseCommand",
+                "args": {
+                    "text" : "s"
+                },
+                "when": "editorTextFocus && editorLangId == git-rebase"
+            },
+            {
+                "key": "f",
+                "command": "rebaser.changeRebaseCommand",
+                "args": {
+                    "text" : "f"
+                },
+                "when": "editorTextFocus && editorLangId == git-rebase"
+            },
+            {
+                "key": "x",
+                "command": "rebaser.changeRebaseCommand",
+                "args": {
+                    "text" : "x"
+                },
+                "when": "editorTextFocus && editorLangId == git-rebase"
+            },
+            {
+                "key": "d",
+                "command": "rebaser.changeRebaseCommand",
+                "args": {
+                    "text" : "d"
+                },
+                "when": "editorTextFocus && editorLangId == git-rebase"
+            }
+        ]
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",

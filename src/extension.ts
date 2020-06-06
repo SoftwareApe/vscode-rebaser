@@ -1,6 +1,7 @@
 'use strict';
 import * as vscode from 'vscode';
 import { RebaseCodeLensProvider } from './code_lenses';
+import { changeRebaseCommand } from './change_rebase';
 
 const rebaseId = 'git-rebase';
 const rebaseSelector: vscode.DocumentSelector = { language: rebaseId };
@@ -12,7 +13,16 @@ const rebaseSelector: vscode.DocumentSelector = { language: rebaseId };
 
 export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
-        vscode.languages.registerCodeLensProvider(rebaseSelector, new RebaseCodeLensProvider()));
+        // Register code lens provider
+        vscode.languages.registerCodeLensProvider(rebaseSelector, new RebaseCodeLensProvider()),
+        // Register keybinding callback handler
+        vscode.commands.registerTextEditorCommand(
+            "rebaser.changeRebaseCommand",
+            (editor: vscode.TextEditor, textEdit: vscode.TextEditorEdit, args: any) => {
+                changeRebaseCommand(editor, textEdit, args.text);
+            }
+        )
+    );
 }
 
 // this method is called when your extension is deactivated
