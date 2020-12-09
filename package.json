@@ -2,7 +2,7 @@
     "name": "rebaser",
     "displayName": "rebaser",
     "description": "Annotate information on git interactive rebase.",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "publisher": "softwareape",
     "license": "MIT",
     "readme": "README.md",
@@ -33,7 +33,7 @@
                 "key": "p",
                 "command": "rebaser.changeRebaseCommand",
                 "args": {
-                    "text" : "p"
+                    "text": "p"
                 },
                 "when": "editorTextFocus && editorLangId == git-rebase"
             },
@@ -41,7 +41,7 @@
                 "key": "r",
                 "command": "rebaser.changeRebaseCommand",
                 "args": {
-                    "text" : "r"
+                    "text": "r"
                 },
                 "when": "editorTextFocus && editorLangId == git-rebase"
             },
@@ -49,7 +49,7 @@
                 "key": "e",
                 "command": "rebaser.changeRebaseCommand",
                 "args": {
-                    "text" : "e"
+                    "text": "e"
                 },
                 "when": "editorTextFocus && editorLangId == git-rebase"
             },
@@ -57,7 +57,7 @@
                 "key": "s",
                 "command": "rebaser.changeRebaseCommand",
                 "args": {
-                    "text" : "s"
+                    "text": "s"
                 },
                 "when": "editorTextFocus && editorLangId == git-rebase"
             },
@@ -65,7 +65,7 @@
                 "key": "f",
                 "command": "rebaser.changeRebaseCommand",
                 "args": {
-                    "text" : "f"
+                    "text": "f"
                 },
                 "when": "editorTextFocus && editorLangId == git-rebase"
             },
@@ -73,7 +73,7 @@
                 "key": "x",
                 "command": "rebaser.changeRebaseCommand",
                 "args": {
-                    "text" : "x"
+                    "text": "x"
                 },
                 "when": "editorTextFocus && editorLangId == git-rebase"
             },
@@ -81,7 +81,7 @@
                 "key": "d",
                 "command": "rebaser.changeRebaseCommand",
                 "args": {
-                    "text" : "d"
+                    "text": "d"
                 },
                 "when": "editorTextFocus && editorLangId == git-rebase"
             }
@@ -95,10 +95,10 @@
         "test": "npm run compile && node ./node_modules/vscode/bin/test"
     },
     "devDependencies": {
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.37",
+        "@types/mocha": "^2.2.42",
+        "@types/node": "^7.10.14",
         "tslint": "^5.8.0",
-        "@types/node": "^7.0.43",
-        "@types/mocha": "^2.2.42"
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.37"
     }
 }

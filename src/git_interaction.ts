@@ -16,9 +16,9 @@ function shellCommand(cwd: string, cmd : string) : string | undefined {
 
 // Get information on a specific git commit
 export function getGitCommitInfo(gitToplevel: string, hash: string): string | undefined {
-    // Get commiter name and all files affected
+    // Get author name and all files affected
     let commitInfo =
-        shellCommand(gitToplevel, `git show --pretty=format:'%cn %b' --name-only ${hash}`);
+        shellCommand(gitToplevel, `git show --pretty=format:'%an' --name-only ${hash}`);
     console.log(commitInfo);
     return commitInfo;
 }
