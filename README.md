@@ -26,6 +26,11 @@ Use the keys `p`, `r`, `e`, `s`, `f`, `x`, `d` to quickly edit commit commands i
 
 ## Release Notes
 
+### 0.3.1
+
+Fixes:
+* Fix bug in auhor or file names containing spaces
+
 ### 0.3.0
 
 Features:

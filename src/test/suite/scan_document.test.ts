@@ -1,7 +1,7 @@
 // Test the functions for scanning the document
 
 import * as assert from 'assert';
-import { getHashesAndLines } from '../scan_document';
+import { getHashesAndLines } from '../../scan_document';
 
 suite("Scan Document Tests", function () {
     test("Find hashes in rebase TODO", function() {
@@ -39,7 +39,7 @@ pick d7ccec6 bump version and update readme
         ];
         
         let hashLines = getHashesAndLines(doc);
-        assert.equal(hashLines.length, expected.length, "Mismatch in number of lines found in document.");
+        assert.strictEqual(hashLines.length, expected.length, "Mismatch in number of lines found in document.");
         for (let idx = 0; idx < expected.length; idx++) {
             assert.deepStrictEqual(expected[idx], hashLines[idx], `Mismatched hash or line in line ${idx}.`);
         }

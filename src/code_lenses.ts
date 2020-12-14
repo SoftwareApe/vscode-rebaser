@@ -1,6 +1,6 @@
 'use strict';
 import * as vscode from 'vscode';
-import { getGitCommitInfo, getGitToplevelFolder } from './git_interaction';
+import { getGitCommitInfo, getGitToplevelFolder, extractAuthorAndFiles } from './git_interaction';
 import { getHashesAndLines } from './scan_document';
 
 // Helpers for adding code lenses
@@ -21,17 +21,10 @@ export class RebaseCodeLensProvider implements vscode.CodeLensProvider {
                 const commitInfo = getGitCommitInfo(gitToplevel, hash);
                 if (commitInfo !== undefined) {
                     let codeLens = new vscode.CodeLens(range);
-                    // Process commit info, so that only filenames without paths are present
-                    let commitInfoArray = commitInfo.split(/[\s\n\r]/).filter(s => s !== "");
-                    let author = commitInfoArray[0];
-                    let files = commitInfoArray.slice(1, undefined)
-                                .map(file => file.replace(/^.*[\\\/]/, ''))
-                                .sort()
-                                .join(", ");
-                    let commitInfoFiltered = [author, ":", files].join(" ");
-                    console.log(commitInfoFiltered);
+                    let [author, files] = extractAuthorAndFiles(commitInfo);
+                    let commitInfoFormatted = [author, ":", files.join(", ")].join(" ");
                     let command: vscode.Command = {
-                        title: commitInfoFiltered,
+                        title: commitInfoFormatted,
                         arguments: [],
                         command: ""
                     };

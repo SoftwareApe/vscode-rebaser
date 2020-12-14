@@ -23,6 +23,17 @@ export function getGitCommitInfo(gitToplevel: string, hash: string): string | un
     return commitInfo;
 }
 
+// Extract information (author + filenames) from git commit info string
+export function extractAuthorAndFiles(gitCommitInfo: string): [string, string[]] {
+    // Process commit info, so that only filenames without paths are present
+    let commitInfoArray = gitCommitInfo.split(/[\n\r]/).map(s => s.trim()).filter(s => s !== "");
+    let author = commitInfoArray[0];
+    let files = commitInfoArray.slice(1, undefined)
+                .map(file => file.replace(/^.*[\\\/]/, ''))
+                .sort();
+    return [author, files];
+}
+
 // Rebase TODOs are located in the .git folder, we need to execute the commands in the right context
 export function getGitToplevelFolder(fsPath: string): string | undefined {
     // Normalize \ -> / if we're on windows
